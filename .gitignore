@@ -1,0 +1,92 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment and dependencies
+env/
+venv/
+ENV/
+*.env
+*.venv
+*.virtualenv
+Pipfile
+Pipfile.lock
+poetry.lock
+
+# Python environment and cache files
+*.egg-info/
+*.eggs/
+*.egg
+*.pkl
+*.h5
+*.hdf5
+*.db
+*.sqlite
+*.sqlite3
+
+# FastAI-related files
+models/
+*.pth
+*.pkl
+*.onnx
+*.hdf5
+*.ckpt
+*.log
+*.metrics
+*.json
+
+# Logs and debugging files
+*.log
+*.out
+*.err
+*.pid
+
+# MacOS system files
+.DS_Store
+*.DS_Store
+
+# VSCode and IDE-related files
+.vscode/
+.idea/
+*.iml
+
+# Virtual environments
+.env/
+build/
+dist/
+*.wheel
+
+# Node.js files (if combined with a frontend project)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vite/
+
+# Docker-related files
+*.dockerignore
+docker-compose.override.yml
+
+# Temporary files and caches
+*.bak
+*.swp
+*.tmp
+*.old
+*.orig
+*.temp
+
+# Dataset files and large files
+data/
+datasets/
+*.csv
+*.tsv
+*.zip
+*.tar.gz
+*.7z
+*.rar
+*.npy
+*.np
