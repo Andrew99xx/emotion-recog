@@ -21,7 +21,6 @@ poetry.lock
 *.egg-info/
 *.eggs/
 *.egg
-*.pkl
 *.h5
 *.hdf5
 *.db
