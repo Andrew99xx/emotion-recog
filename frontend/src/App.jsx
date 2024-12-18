@@ -29,7 +29,7 @@ function App() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/predict", formData, {
+      const response = await axios.post("http://13.201.70.151:5000/predict", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setPrediction(response.data.prediction);
