@@ -30,7 +30,6 @@ poetry.lock
 # FastAI-related files
 models/
 *.pth
-*.pkl
 *.onnx
 *.hdf5
 *.ckpt
