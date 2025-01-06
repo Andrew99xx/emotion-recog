@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css"; // Import external CSS
-
-function App() {
+import { notification } from "antd";function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewURL, setPreviewURL] = useState(null);
   const [prediction, setPrediction] = useState(null);
@@ -21,7 +20,12 @@ function App() {
     event.preventDefault();
 
     if (!selectedFile) {
-      alert("Please select an image to upload.");
+      notification.warning({
+        message: 'No Image Selected',
+        description: "Please select a Image to predict",
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });
       return;
     }
 
@@ -29,19 +33,33 @@ function App() {
     formData.append("file", selectedFile);
 
     try {
-      const response = await axios.post("http://13.201.70.151:5000/predict", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+      const backendUrl = " https://e851-2406-da1a-aeb-7600-aa24-8812-c5fc-20b5.ngrok-free.app/predict";
+
+      // Use the new backend URL in API calls
+      const response = await axios.post(backendUrl, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "ngrok-skip-browser-warning": "true", // Bypass ngrok warning page
+        },
       });
+
       setPrediction(response.data.prediction);
     } catch (error) {
-      console.error("Error uploading file:", error);
-      alert("Error during prediction. Please try again.");
+      console.error("Error uploading file:", error.response.data.error);
+      notification.error({
+        message: 'Erro while Predicting',
+        description: error.response.data.error,
+        placement: 'topRight',
+        duration: 3, // Display for 3 seconds
+      });
     }
   };
 
   return (
     <div className="app-container">
       <h1 className="app-title">Emotion Recognition</h1>
+      <h4 className="app-title-xs">Identifiable Emotions are Angry, Happy, Neutral, Sad, Surprise</h4>
+
       <form onSubmit={handleSubmit} className="upload-form">
         <div className="file-input-wrapper">
           <input
