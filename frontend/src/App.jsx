@@ -33,7 +33,7 @@ import { notification } from "antd";function App() {
     formData.append("file", selectedFile);
 
     try {
-      const backendUrl = " https://e851-2406-da1a-aeb-7600-aa24-8812-c5fc-20b5.ngrok-free.app/predict";
+      const backendUrl = "https://cbcf-2406-da1a-aeb-7600-aa24-8812-c5fc-20b5.ngrok-free.app/predict";
 
       // Use the new backend URL in API calls
       const response = await axios.post(backendUrl, formData, {
