@@ -43,6 +43,10 @@ def detect_and_crop_face(image):
 
 @app.route("/predict", methods=["POST"])
 def predict():
+    if request.method == "OPTIONS":
+        # Preflight request
+        return jsonify({"message": "Preflight check successful"}), 200
+    
     if "file" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
     
